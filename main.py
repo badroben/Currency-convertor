@@ -3,7 +3,7 @@ import requests
 
 APP_ID = 'YOUR_APP_ID'
 
-
+# This function fetches current exchange rates from the openexchangerates API
 def fetch_exchange_rates():
     target_currency = combo_to_currency.get()
     url = f"https://openexchangerates.org/api/latest.json?app_id={APP_ID}&symbols={target_currency}"
@@ -16,6 +16,7 @@ def fetch_exchange_rates():
     except requests.exceptions.RequestException:
         return None
 
+# This function converts the given amount using the exchange rate fetched
 def convert_currency():
     try:
         amount = float(entry_amount.get())
